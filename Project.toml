@@ -1,0 +1,7 @@
+name = "ChordalGraph"
+uuid = "60fd0770-a5cf-11ea-07c5-d789f1eae5cb"
+authors = ["jwang <wangjie212@mails.ucas.ac.cn>"]
+version = "0.1.0"
+
+[deps]
+LightGraphs = "093fc24a-ae57-5d10-9952-331d41423f4d"
