@@ -27,7 +27,7 @@ method: MF (a chordal extension based on greedy minimal fill-in), MD (a chordal 
 minimize: true (minimizing the obtained chordal extension), false (not minimizing the obtained chordal extension)  
 
 ## References
-[ChordalGraph: A Julia Package to Handle Chordal Graph](), Jie Wang, 2020.  
+[ChordalGraph: A Julia Package to Handle Chordal Graphs](), Jie Wang, 2020.  
 
 ## Contact
 [Jie Wang](https://wangjie212.github.io/jiewang/): jwang@laas.fr
