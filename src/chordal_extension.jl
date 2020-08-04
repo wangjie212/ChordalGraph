@@ -27,13 +27,13 @@ function MCSM!(G)
         for u in intersect(neighbors(G, v), unorder)
             push!(reach[w[u]], u)
             push!(S, u)
-            deleteat!(unreach, lbfind(unreach, length(unreach), u))
+            deleteat!(unreach, bfind(unreach, length(unreach), u))
         end
         for k=1:maxw-1
             while reach[k]!=[]
                 z=pop!(reach[k])
                 for u in intersect(neighbors(G, z), unreach)
-                    deleteat!(unreach, lbfind(unreach, length(unreach), u))
+                    deleteat!(unreach, bfind(unreach, length(unreach), u))
                     if w[u]>k
                         push!(reach[w[u]], u)
                         push!(S, u)
@@ -79,17 +79,41 @@ function MinimalChordal!(G, order, F)
             linc=length(inc)
             W=complete_graph(linc)
             for j=1:size(cand,2)
-                rem_edge!(W, lbfind(inc,linc,cand[1,j]), lbfind(inc,linc,cand[2,j]))
+                rem_edge!(W, bfind(inc,linc,cand[1,j]), bfind(inc,linc,cand[2,j]))
             end
             keep,_ = MCSM!(W)
             for j=1:size(cand,2)
-                if !has_edge(keep, lbfind(inc,linc,cand[1,j]), lbfind(inc,linc,cand[2,j]))
+                if !has_edge(keep, bfind(inc,linc,cand[1,j]), bfind(inc,linc,cand[2,j]))
                     rem_edge!(G, cand[1,j], cand[2,j])
                 end
             end
         end
     end
     return G,MCS(G)
+end
+
+function bfind(A, l, a)
+    if l==0
+        return 0
+    end
+    low=1
+    high=l
+    while low<=high
+        mid=Int(ceil(1/2*(low+high)))
+        if length(a)>1
+            temp=A[:,mid]
+        else
+            temp=A[mid]
+        end
+        if isequal(temp, a)
+           return mid
+        elseif isless(temp, a)
+           low=mid+1
+        else
+           high=mid-1
+        end
+    end
+    return 0
 end
 
 function GreedyOrder!(G; method="MF", minimize=true)
