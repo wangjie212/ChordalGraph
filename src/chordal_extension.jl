@@ -134,11 +134,9 @@ function GreedyOrder!(G; method="MF", minimize=true)
                 lneib=length(neib)
                 if lneib>0
                     sg=0
-                    for k=1:lneib
-                        for l=k+1:lneib
-                            if has_edge(H, neib[k], neib[l])
-                                sg+=1
-                            end
+                    for k=1:lneib, l=k+1:lneib
+                        if has_edge(H, neib[k], neib[l])
+                            sg+=1
                         end
                     end
                     num_fill[j]=Int(lneib*(lneib-1)/2-sg)
@@ -208,11 +206,9 @@ function CheckChordal(G)
     for i=1:n
         v=findfirst(x->order[x]==i, 1:n)
         neib=intersect(neighbors(G, v), findall(x->order[x]>i, 1:n))
-        for j=1:length(neib)-1
-            for k=j+1:length(neib)
-                if !has_edge(G, neib[j], neib[k])
-                    flag=false
-                end
+        for j=1:length(neib)-1, k=j+1:length(neib)
+            if !has_edge(G, neib[j], neib[k])
+                flag=false
             end
         end
     end
