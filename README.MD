@@ -1,5 +1,5 @@
 # ChordalGraph
-ChordalGraph is an extension of the Julia package LightGraph to handle chordal graphs.
+ChordalGraph is an extension of the Julia package LightGraphs to handle chordal graphs.
 
 To use ChordalGraph in Julia, run
 ```Julia
@@ -7,7 +7,7 @@ pkg> add https://github.com/wangjie212/ChordalGraph
  ```
 
 ## Dependencies
-- LightGraph
+- LightGraphs
 
 ## Usage
 
