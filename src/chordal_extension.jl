@@ -100,14 +100,9 @@ function bfind(A, l, a)
     high=l
     while low<=high
         mid=Int(ceil(1/2*(low+high)))
-        if length(a)>1
-            temp=A[:,mid]
-        else
-            temp=A[mid]
-        end
-        if isequal(temp, a)
+        if A[mid]==a
            return mid
-        elseif isless(temp, a)
+        elseif A[mid]<a
            low=mid+1
         else
            high=mid-1
