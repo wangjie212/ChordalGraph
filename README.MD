@@ -29,5 +29,13 @@ minimize: true (minimizing the obtained chordal extension), false (not minimizin
 ## References
 [ChordalGraph: A Julia Package to Handle Chordal Graphs](), Jie Wang, 2020.  
 
+## Citing
+@article{Wang20,
+  author       = {Jie Wang},
+  title        = {ChordalGraph: A Julia Package to Handle Chordal Graphs},
+  year         = 2020,
+  url          = {https://github.com/wangjie212/ChordalGraph}
+}
+
 ## Contact
 [Jie Wang](https://wangjie212.github.io/jiewang/): jwang@laas.fr
