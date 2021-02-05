@@ -111,7 +111,7 @@ function bfind(A, l, a)
     return 0
 end
 
-function GreedyOrder!(G; method="MF", minimize=true)
+function GreedyOrder!(G; method="MF", minimize=false)
     n=nv(G)
     H=copy(G)
     order=zeros(UInt16,n)
@@ -172,7 +172,7 @@ function GreedyOrder!(G; method="MF", minimize=true)
     return G,order
 end
 
-function chordal_cliques!(G; method="MF", minimize=true)
+function chordal_cliques!(G; method="MF", minimize=false)
     G, order=GreedyOrder!(G, method=method, minimize=minimize)
     n=nv(G)
     candidate_cliques=Vector{Vector{UInt16}}(undef, n)
