@@ -1,0 +1,11 @@
+name = "ChordalGraph"
+uuid = "60fd0770-a5cf-11ea-07c5-d789f1eae5cb"
+authors = ["jwang <wangjie212@amss.ac.cn>"]
+version = "0.4.0"
+
+[deps]
+Graphs = "86223c79-3864-5bf0-83f7-82e725a168b6"
+
+[compat]
+julia = "1"
+Graphs = "1.5"
